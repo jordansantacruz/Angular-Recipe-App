@@ -1,8 +1,10 @@
 <div class="row">
 	<div class="col-md-5">
-		<app-recipe-list></app-recipe-list>
+		<app-recipe-list (recipeClickedEmitter)="onRecipeReceived($event)"></app-recipe-list>
 	</div>
 	<div class="col-md-7">
-		<app-recipe-detail></app-recipe-detail>
+		<app-recipe-detail *ngIf="selectedRecipe; else noSelectedRecipe"
+		 [selectedRecipe]="selectedRecipe"></app-recipe-detail>
+		<ng-template #noSelectedRecipe><h1>Try something new!</h1></ng-template>
 	</div>
 </div>
