@@ -1,0 +1,42 @@
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/Forms';
+import {  Ingredient } from '../../shared/ingredient.model';
+<<<<<<< HEAD
+import { ShoppingListService } from '../shopping-list.service';
+=======
+>>>>>>> 954f96de065a89bdce5eb204c46d8344e4f8e711
+@Component({
+  selector: 'app-shopping-edit',
+  templateUrl: './shopping-edit.component.html',
+  styleUrls: ['./shopping-edit.component.css']
+})
+export class ShoppingEditComponent implements OnInit {
+	@ViewChild('nameInput') nameInputRef: ElementRef;
+	@ViewChild('amtInput') amtInputRef: ElementRef;
+<<<<<<< HEAD
+  constructor(private shoppingListServ: ShoppingListService) { }
+=======
+	@Output() addEventEmitter = new EventEmitter<Ingredient>();
+  constructor() { }
+>>>>>>> 954f96de065a89bdce5eb204c46d8344e4f8e711
+
+  ngOnInit() {
+  }
+
+  addButtonClick(){
+<<<<<<< HEAD
+  	this.shoppingListServ.addIngredient(new Ingredient(
+      this.nameInputRef.nativeElement.value, 
+      this.amtInputRef.nativeElement.value));
+  }
+
+  clearButtonClick(){
+    console.log("click happens");
+    this.shoppingListServ.clearIngredients();
+=======
+  	this.addEventEmitter.emit(new Ingredient(
+  		this.nameInputRef.nativeElement.value, 
+  		this.amtInputRef.nativeElement.value));
+>>>>>>> 954f96de065a89bdce5eb204c46d8344e4f8e711
+  }
+}

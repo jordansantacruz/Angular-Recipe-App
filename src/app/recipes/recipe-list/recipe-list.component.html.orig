@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-xs-12">
+		<button class="btn btn-success">New Recipe</button>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-12">
+<<<<<<< HEAD
+	<app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>	
+=======
+	<app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"
+	(recipeClickedEmitter)="onRecipeClickedEventReceived($event)"></app-recipe-item>	
+>>>>>>> 954f96de065a89bdce5eb204c46d8344e4f8e711
+	</div>
+</div>

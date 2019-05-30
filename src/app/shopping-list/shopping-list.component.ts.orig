@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+//Import all classes that you want to use locally first
+import { Ingredient } from '../shared/ingredient.model';
+<<<<<<< HEAD
+import { ShoppingListService } from './shopping-list.service';
+@Component({
+  selector: 'app-shopping-list',
+  templateUrl: './shopping-list.component.html',
+  styleUrls: ['./shopping-list.component.css'],
+  providers: [ShoppingListService]
+})
+export class ShoppingListComponent implements OnInit {
+	ingredients: Ingredient[];
+
+  constructor(private shoppingListServ: ShoppingListService) { }
+
+  ngOnInit() {
+  	this.ingredients = this.shoppingListServ.getIngredients();
+  	//this.shoppingListServ.ingredientsChanged.subscribe((newIngList: Ingredient[]) => {this.ingredients = newIngList});
+  	this.shoppingListServ.ingredientsChanged.subscribe((newIngList: Ingredient[]) => {this.updateWorkingList(newIngList)});
+  	
+  }
+
+  updateWorkingList(newIngList: Ingredient[]){
+  	this.ingredients = newIngList;
+=======
+@Component({
+  selector: 'app-shopping-list',
+  templateUrl: './shopping-list.component.html',
+  styleUrls: ['./shopping-list.component.css']
+})
+export class ShoppingListComponent implements OnInit {
+	ingredients = [
+		new Ingredient('Apples', 5),
+		new Ingredient('Tomatoes', 10)
+	];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  addListItemEventReceived(ingredient: Ingredient){
+    if(ingredient.name != "" && ingredient.amount > 0){
+      this.ingredients.push(ingredient);  
+    }
+    
+>>>>>>> 954f96de065a89bdce5eb204c46d8344e4f8e711
+  }
+
+}
