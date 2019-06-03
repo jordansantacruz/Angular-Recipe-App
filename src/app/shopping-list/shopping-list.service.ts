@@ -19,7 +19,15 @@ export class ShoppingListService {
 	}
 
 	public addIngredient(ing: Ingredient){
-		this.ingredients.push(ing);
+		var subset: Ingredient[];
+		subset = this.ingredients.filter(e => e.name === ing.name);
+		if(subset.length > 0){
+			subset[0].amount = Number(ing.amount) + Number(subset[0].amount);
+		}
+
+		else{
+			this.ingredients.push(ing);
+		}
 		this.ingredientsChanged.emit(this.ingredients.slice());
 	}
 
