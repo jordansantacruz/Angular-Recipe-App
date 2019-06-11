@@ -20,15 +20,23 @@ export class ShoppingListService {
 
 	public addIngredient(ing: Ingredient){
 		var subset: Ingredient[];
+		//See if you're adding an ingredient already in the list
 		subset = this.ingredients.filter(e => e.name === ing.name);
 		if(subset.length > 0){
+			//If so, simply add to the amount you want to buy
 			subset[0].amount = Number(ing.amount) + Number(subset[0].amount);
 		}
-
+		//Else simply add the new ingredient
 		else{
 			this.ingredients.push(ing);
 		}
 		this.ingredientsChanged.emit(this.ingredients.slice());
+	}
+
+	public addIngredients(ings: Ingredient[]){
+		for(let ing of ings){
+			this.addIngredient(ing);
+		}
 	}
 
 	public deleteIngredient(ing: Ingredient){

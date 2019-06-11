@@ -16,8 +16,7 @@ export class RecipeDetailComponent implements OnInit {
 
 
   sendToShoppingList(){
-  	for (let ing of this.selectedRecipe.ingredients){
-  		this.shoppingListService.addIngredient(ing);
-  	}
+  	this.shoppingListService.addIngredients(
+      this.selectedRecipe.ingredients);
   }
 }
